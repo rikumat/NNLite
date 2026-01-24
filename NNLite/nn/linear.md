@@ -43,3 +43,6 @@ Now
 $$ \frac{\partial E}{\partial W_{ij}} = (X^T{\nabla}_{Z}E)_{ij} \ and \ {\nabla}_{W}E = X^T{\nabla}_{Z}E $$
 
 To be able to calculate this gradient during backward pass, we store the input X as a class attribute. The gradient ${\nabla}_{Z}E$ will be provided separately by the subsequent function, whether it be the next layer, activation function, or the loss function.
+
+## Backward pass
+After forwarding the output and saving the inputs of the current batch, the next step is to calculate the gradient of the loss with respect to the layer's weights. The backward method takes as an argument the gradient ${\nabla}_{Z}E$ and calculates the gradient of the weights with the formula derived above. The gradient is then saved as a class attribute for further use by an optimizer.
