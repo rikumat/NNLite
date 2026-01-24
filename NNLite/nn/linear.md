@@ -26,5 +26,5 @@ $$\frac{\partial Z_{lk}}{\partial W_{ij}}\ne 0 \ or \ j=k$$
 
 Which reduces the sum to 
 
-$$\frac{\partial E}{\partial W_{ij}} = \sum_{l}(\frac{\partial E}{\partial Z_{lj}}\frac{\partial Z_{lj}}{\partial W_{ij}})$$
+$$\frac{\partial E}{\partial W_{ij}} = \sum_{l}(\frac{\partial E}{\partial Z_{lj}}\frac{\partial Z_{lj}}{\partial W_{ij}}) = \sum_{l}(\frac{\partial E}{\partial Z_{lj}}X_{li})$$
 
