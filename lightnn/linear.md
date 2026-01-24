@@ -7,11 +7,24 @@ Full connectivity offers favorable attributes, such as the ability to compute th
 ## Initialization
 When creating a layer, the class needs to know the number of neurons on the layer, and the number of features in the inputs. We denote these with the constants m and f. These constants are used to create the weight matrix and bias vector. Now
 
-$W\in \mathbb{R}^{fxm}$, $X\in \mathbb{R}^{nxf}$, $b \in \mathbb{R}^m$
+$$W\in \mathbb{R}^{fxm}$, $X\in \mathbb{R}^{nxf}$, $b \in \mathbb{R}^m$$
 
 Where f is the number of input features, m is the number of neurons, and n is the number of inputs.
 
 $$(XW)_{ij}=X_{i.}W_{.j}$$
 
 We expect as an input a matrix X where samples are on rows and features are on columns. As such, $X_{ij}$ denotes the j:th feature of the i:th input. To transform the input linearly, The output of the layer is calculated with the expression $Z=XW+b$, such that $Z_{ij}$ is the output of the j:th neuron for the i:th input. The bias vector is added to every row of XW.
+
+## Forward pass
+To accommodate later gradient calculation during backpropagation, each layer needs to keep track of its local gradient.
+
+$$\frac{\partial E}{\partial W_{ij}} = \sum_{l,k}(\frac{\partial E}{\partial Z_{lk}}\frac{\partial Z_{lk}}{\partial W_{ij}})$$
+
+The elements in the sum are nonzero only when 
+
+$$\frac{\partial Z_{lk}}{\partial W_{ij}}\ne 0 \ or \ j=k$$
+
+Which reduces the sum to 
+
+$$\frac{\partial E}{\partial W_{ij}} = \sum_{l}(\frac{\partial E}{\partial Z_{lj}}\frac{\partial Z_{lj}}{\partial W_{ij}})$$
 
