@@ -41,3 +41,5 @@ $$ \frac{\partial E}{\partial W_{ij}} = \sum_{l}(\frac{\partial E}{\partial Z_{l
 Now
 
 $$ \frac{\partial E}{\partial W_{ij}} = (X^T{\nabla}_{Z}E)_{ij} \ and \ {\nabla}_{W}E = X^T{\nabla}_{Z}E $$
+
+To be able to calculate this gradient during backward pass, we store the input X as a class attribute.
