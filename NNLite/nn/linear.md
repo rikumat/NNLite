@@ -36,12 +36,8 @@ We have
 
 $$ \frac{\partial Z_{lj}}{\partial W_{ij}}=X_{li} $$
 
-$$ \frac{\partial E}{\partial W_{ij}} = \sum_{l}(\frac{\partial E}{\partial Z_{lj}}X_{li})$$
-
-Let us denote 
-
-$$({\nabla}_{Z}E)_{ij}=\frac{\partial E}{\partial Z_{ij}}$$
+$$ \frac{\partial E}{\partial W_{ij}} = \sum_{l}(\frac{\partial E}{\partial Z_{lj}}X_{li}) = \sum_{l}(X^{T}_{il}\frac{\partial E}{\partial Z_{lj}})$$
 
 Now
 
-$$ \frac{\partial E}{\partial W_{ij}} = X^T{\nabla}_{Z}E $$
+$$ \frac{\partial E}{\partial W_{ij}} = (X^T{\nabla}_{Z}E)_{ij} \ and \ {\nabla}_{W}E = X^T{\nabla}_{Z}E $$
