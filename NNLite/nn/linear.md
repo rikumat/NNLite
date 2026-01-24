@@ -35,3 +35,13 @@ $$Z_{lj}=\sum_{i}(X_{li}W_{ij})+b$$
 We have 
 
 $$ \frac{\partial Z_{lj}}{\partial W_{ij}}=X_{li} $$
+
+$$ \frac{\partial E}{\partial W_{ij}} = \sum_{l}(\frac{\partial E}{\partial Z_{lj}}X_{li})$$
+
+Let us denote 
+
+$$({\nabla}_{Z}E)_{ij}=\frac{\partial E}{\partial Z_{ij}}$$
+
+Now
+
+$$ \frac{\partial E}{\partial W_{ij}} = X^T{\nabla}_{Z}E $$
