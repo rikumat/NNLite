@@ -42,4 +42,4 @@ Now
 
 $$ \frac{\partial E}{\partial W_{ij}} = (X^T{\nabla}_{Z}E)_{ij} \ and \ {\nabla}_{W}E = X^T{\nabla}_{Z}E $$
 
-To be able to calculate this gradient during backward pass, we store the input X as a class attribute.
+To be able to calculate this gradient during backward pass, we store the input X as a class attribute. The gradient ${\nabla}_{Z}E$ will be provided separately from the subsequent element, whether it be the next layer, activation function, or the loss function.
