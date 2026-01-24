@@ -7,7 +7,7 @@ Full connectivity offers favorable attributes, such as the ability to compute th
 ## Initialization
 When creating a layer, the class needs to know the number of neurons on the layer, and the number of features in the inputs. We denote these with the constants m and f. These constants are used to create the weight matrix and bias vector. Now
 
-$$W\in \mathbb{R}^{fxm}$, $X\in \mathbb{R}^{nxf}$, $b \in \mathbb{R}^m$$
+$$W\in \mathbb{R}^{fxm}, \ X\in \mathbb{R}^{nxf},\ b \in \mathbb{R}^m$$
 
 Where f is the number of input features, m is the number of neurons, and n is the number of inputs.
 
