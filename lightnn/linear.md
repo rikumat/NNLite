@@ -1,6 +1,7 @@
 # Linear layer construction
 
 ## Initialization
+When creating a layer, the class needs to know the number of neurons on the layer, and the number of features in the inputs. We denote these with the constants m and f. These constants are used to create the weight matrix and bias vector. Now
 
 $W\in R^{fxm}$, $X\in R^{nxf}$, $b \in R^{1xm}$
 
