@@ -13,6 +13,7 @@ class Linear:
         self.b = 0.01*np.random.rand(1, m)
         self.gradW = np.zeros((f, m))
         self.gradB = np.zeros((1, m))
+        self.X=None
 
     def forward(self, X):
         """
@@ -23,8 +24,19 @@ class Linear:
             X: a matrix of inputs, where samples are on rows and features are on columns.
         """
 
-        out = X @ self.W + self.b
-        return out
+        Z = X @ self.W + self.b
+        self.X=X
+        return Z
+
+    def backward(self, gradZ):
+        self.gradW=self.X.T @ gradZ
+        self.gradB=np.sum(gradZ, axis=0, keepdims=True)
+        gradX=gradZ@self.W.T
+        return gradX
+
+
+
+
 
 
 
