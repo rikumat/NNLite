@@ -59,13 +59,13 @@ $${\nabla}_{b}E=\sum_{l}{({\nabla}_ZE)_{l.}}$$
 
 The final step is to calculate the gradient of E wrt. X.
 
-$$\frac{\partial E}{\partial X_{ij}} = \sum_{l}({\nabla}_ZE_{il} \frac{\partial Z_{il}}{X_{ij}})=\sum_{l}({\nabla}_ZE_{il}W_{jl})=({\nabla}_ZE W^T)_{ij} $$
+$$\frac{\partial E}{\partial X_{ij}} = \sum_{l}({\nabla}_ZE_{il} \frac{\partial Z_{il}}{\partial X_{ij}})=\sum_{l}({\nabla}_ZE_{il}W_{jl})=({\nabla}_ZE W^T)_{ij} $$
 
 which results in 
 
 $${\nabla}_XE={\nabla}_ZE W^T$$
 
-
+The last gradient is returned to be used by the previous layer during backpropagation.
 
 
 
