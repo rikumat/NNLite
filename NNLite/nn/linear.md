@@ -22,7 +22,7 @@ $$\frac{\partial E}{\partial W_{ij}} = \sum_{l,k}(\frac{\partial E}{\partial Z_{
 
 The elements in the sum are nonzero only when 
 
-$$\frac{\partial Z_{lk}}{\partial W_{ij}}\ne 0 \ or \ j=k$$
+$$\frac{\partial Z_{lk}}{\partial W_{ij}}\ne 0 \ or \ equivalently \ j=k$$
 
 Which reduces the sum to 
 
@@ -30,7 +30,7 @@ $$\frac{\partial E}{\partial W_{ij}} = \sum_{l}(\frac{\partial E}{\partial Z_{lj
 
 as 
 
-$$Z_{lj}=\sum_{i}(X_{li}W_{ij})+b$$
+$$Z_{lj}=\sum_{i}(X_{li}W_{ij})+b_j$$
 
 We have 
 
@@ -46,3 +46,32 @@ To be able to calculate this gradient during backward pass, we store the input X
 
 ## Backward pass
 After forwarding the output and saving the inputs of the current batch, the next step is to calculate the gradient of the loss with respect to the layer's weights. The backward method takes as an argument the gradient ${\nabla}_{Z}E$ and calculates the gradient of the weights with the formula derived above. The gradient is then saved as a class attribute for further use by an optimizer.
+
+as
+
+$$Z_{lj}=\sum_{i}(X_{li}W_{ij})+b_j$$
+
+$$\frac{\partial E}{\partial b_j} = \sum_{l}(\frac{\partial E}{\partial Z_{lj}}\frac{\partial Z_{lj}}{\partial b_j})= \sum_{l}(\frac{\partial E}{\partial Z_{lj}})$$
+
+The gradient of F wrt. the bias terms is the row-wise sum of ${\nabla}_ZE$.
+
+$${\nabla}_{b}E=\sum_{l}{({\nabla}_ZE)_{l.}}$$
+
+The final step is to calculate the gradient of E wrt. X.
+
+$$\frac{\partial E}{\partial X_{ij}} = \sum_{l}({\nabla}_ZE_{il} \frac{\partial Z_{il}}{X_{ij}})=\sum_{l}({\nabla}_ZE_{il}W_{jl})=({\nabla}_ZE W^T)_{ij} $$
+
+which results in 
+
+$${\nabla}_XE={\nabla}_ZE W^T$$
+
+
+
+
+
+
+
+
+
+
+
