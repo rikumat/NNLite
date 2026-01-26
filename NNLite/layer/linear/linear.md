@@ -1,9 +1,5 @@
 # Linear layer construction
 
-## Overview
-A linear (or fully connected) layer is a specific type of layer used in neural networks. In these layers, all inputs are connected to all outputs; hence the name “fully connected.” Each neuron in a linear layer calculates its output based on the weighted sum of its inputs and a bias term. Consequently, the number of outputs from a linear layer is equal to the number of neurons in that layer. These outputs can then be used as inputs to the next layer.
-Full connectivity offers favorable attributes, such as the ability to compute the layer’s output using matrix–vector multiplication. In the case of a single input vector x with f features, the weighted sum can be computed by multiplying x by a weight matrix W, where each column of W corresponds to the weights associated with a specific neuron. The output can then be completed by adding the bias terms, which can be done by summing a vector of biases to the result of the multiplication.
-
 ## Initialization
 When creating a layer, the class needs to know the number of neurons on the layer, and the number of features in the inputs. We denote these with the constants m and f. These constants are used to create the weight matrix and bias vector. Now
 
