@@ -53,7 +53,7 @@ $$Z_{lj}=\sum_{i}(X_{li}W_{ij})+b_j$$
 
 $$\frac{\partial E}{\partial b_j} = \sum_{l}(\frac{\partial E}{\partial Z_{lj}}\frac{\partial Z_{lj}}{\partial b_j})= \sum_{l}(\frac{\partial E}{\partial Z_{lj}})$$
 
-The gradient of F wrt. the bias terms is the row-wise sum of ${\nabla}_ZE$.
+The gradient of F wrt. the bias terms is the column-wise sum of ${\nabla}_ZE$.
 
 $${\nabla}_{b}E=\sum_{l}{({\nabla}_ZE)_{l.}}$$
 
