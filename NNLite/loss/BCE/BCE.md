@@ -6,7 +6,7 @@ $$Pr(y_i=1|\theta) = z_i \quad and \quad Pr(y_i=0|\theta) = 1-z_i$$
 
 Which gives the likelihood function 
 
-$$\mathcal{L}(\theta | y_i) = z_i^{y_i}*(1-z_i)^{1-y_i}$$
+$$\mathcal{L}(\theta | y_i) = z_i^{y_i}(1-z_i)^{1-y_i}$$
 
 and the log likelihood
 
@@ -16,4 +16,14 @@ This gives the loss
 
 $$ E=-\frac{1}{M}\sum_{i=1}^M[y_ilog(z_i) + (1-y_i)log(1-z_i)]$$
 
+## Forward pass
 
+When using batched training, the losses for individual samples are usually combined by averaging them. This results in the final loss function
+
+$$ E=-\frac{1}{MN}\sum_{i=1}^N\sum_{j=1}^M[Y_{ij}log(Z_{ij}) + (1-Y_{ij})log(1-Z_{ij})]$$
+
+Where
+* $Y_{ij}$ is the true label for output j in sample i
+* $Z_{ij}$ is the predicted probability of the true label $Y_{ij}$ being 1
+* N is the number of samples
+* M is the number of outputs in each sample
