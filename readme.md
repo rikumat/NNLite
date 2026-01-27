@@ -8,3 +8,5 @@ The purpose of this repository is to act as learning material for those interest
 $$({\nabla}_{A}F)_{ij}=\frac{\partial F}{\partial A_{ij}}$$
 
 * $A_{i.}, \ A_{.j}$: The i:th row and the j:th column of A, respectively.
+
+* $$\theta$$: network parameters
