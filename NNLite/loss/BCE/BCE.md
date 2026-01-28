@@ -31,9 +31,10 @@ Where
 ## Backward pass
 Since the loss is a sum of terms each depending only on one Z_{ij}, the calculation of partial derivatives is straightforward. Specifically, we get
 
-$$ \frac{E}{Z_{ij}}=-\frac{1}{MN}[Y_{ij}log(Z_{ij}) + (1-Y_{ij})log(1-Z_{ij})]$$
+$$ \frac{\partial E}{\partial Z_{ij}}=-\frac{1}{MN}\frac{\partial}{\partial Z_{ij}}[Y_{ij}log(Z_{ij}) + (1-Y_{ij})log(1-Z_{ij})]$$
 
 resulting in 
 
-$$ \frac{E}{Z_{ij}}=-\frac{1}{MN}\left(\frac{Y_{ij}}{Z_{ij}} - \frac{1-Y_{ij}}{1-Z_{ij}}\right)$$
+$$ \frac{\partial E}{ \partial Z_{ij}}=-\frac{1}{MN}\left(\frac{Y_{ij}}{Z_{ij}} - \frac{1-Y_{ij}}{1-Z_{ij}}\right)$$
+
 
