@@ -9,8 +9,8 @@ class Linear:
         f: the number of expected input features
         m: the number of neurons on the layer
         """
-        self.W = 0.01*np.random.rand(f, m)
-        self.b = 0.01*np.random.rand(1, m)
+        self.W = np.random.randn(f, m) * np.sqrt(2 / f)
+        self.b = 0.05*np.random.rand(1, m)
         self.gradW = np.zeros((f, m))
         self.gradB = np.zeros((1, m))
         self.X=None
@@ -34,7 +34,6 @@ class Linear:
         and the inputs from the last forward pass. gradX will be used as gradZ by
         the previous function in the sequence.
         """
-
         self.gradW=self.X.T @ gradZ
         self.gradB=np.sum(gradZ, axis=0, keepdims=True)
         gradX=gradZ@self.W.T

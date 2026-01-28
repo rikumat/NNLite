@@ -9,11 +9,10 @@ class Sequential:
         return X
     
     def backward(self, loss):
-        gradE = loss.backward(self.Z)
+        gradE = loss.backward()
         for func in self.functions[::-1]:
             gradE = func.backward(gradE)
 
-        
     def params(self):
         parameters = []
         for func in self.functions:

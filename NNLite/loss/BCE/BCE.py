@@ -6,7 +6,7 @@ class BCE:
         self.Y=None
         self.Z=None
 
-    def forward(self, Z:np.array, Y):
+    def forward(self, Z, Y):
         Z=np.clip(Z, epsilon, 1-epsilon)
         E=-np.mean((Y*np.log(Z)+(1-Y)*np.log(1-Z)))
         self.Y=Y
