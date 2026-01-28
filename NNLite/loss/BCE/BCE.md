@@ -37,4 +37,9 @@ resulting in
 
 $$ \frac{\partial E}{ \partial Z_{ij}}=-\frac{1}{MN}\left(\frac{Y_{ij}}{Z_{ij}} - \frac{1-Y_{ij}}{1-Z_{ij}}\right)$$
 
+giving the gradient
+
+$$ \nabla_ZE=-\frac{1}{MN}\left(\frac{Y}{Z} - \frac{1-Y}{1-Z}\right)$$
+
+
 
