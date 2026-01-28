@@ -14,7 +14,7 @@ $$({\nabla}_{A}F)_{ij}=\frac{\partial F}{\partial A_{ij}}$$
 ## Update log
 ### 29.1.2026 
 - stable release supporting feedforward networks
-- Relu, Sigmoid activation functions
+- ReLU, Sigmoid activation functions
 - Binary cross entropy loss
 - SGD optimizer
 > New loss functions, optimizers, and regularization will be added soon.
