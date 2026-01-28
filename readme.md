@@ -17,4 +17,4 @@ $$({\nabla}_{A}F)_{ij}=\frac{\partial F}{\partial A_{ij}}$$
 - Relu, Sigmoid activation functions
 - Binary cross entropy loss
 - SGD optimizer
-> new loss functions, optimizers, and regularization will be added soon.
+> New loss functions, optimizers, and regularization will be added soon.
