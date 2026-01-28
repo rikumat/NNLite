@@ -10,3 +10,10 @@ $$({\nabla}_{A}F)_{ij}=\frac{\partial F}{\partial A_{ij}}$$
 * $A_{i.}, \ A_{.j}$: The i:th row and the j:th column of A, respectively.
 
 * $$\theta$$: network parameters
+
+## Update log
+### 29.1.2026 
+- stable release supporting feedforward networks
+- Relu, Sigmoid activation functions
+- Binary cross entropy loss
+- SGD optimizer
