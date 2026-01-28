@@ -38,7 +38,7 @@ model = Sequential(
 
 old = model.functions[-2].W.copy()
 
-optim = SGD(model.params(), lr=1)
+optim = SGD(model, lr=0.0001)
 NUM_EPOCH=100
 
 for j in range(0, NUM_EPOCH):
@@ -49,21 +49,18 @@ for j in range(0, NUM_EPOCH):
     acc = 0
     for i in range(0, num_samples, batch_size):
 
-        x_batch = x_train_flat[i:i+batch_size].astype('float32') / 255.0
+        x_batch = x_train_flat[i:i+batch_size]
         y_batch = y_train_filtered[i:i+batch_size]
 
         y_train_binary = np.where(y_batch == 5, 1, 0).reshape(-1, 1)
 
         result = model.forward(x_batch)
-
         acc += accuracy_score(y_train_binary, (result>0.5).astype(int))
 
         loss = BCE()
         l = loss.forward(result, y_train_binary)
         model.backward(loss)
         optim.step()
-
-
 
     print(acc/(num_samples/batch_size))
 
