@@ -29,7 +29,7 @@ Where
 * M is the number of outputs in each sample
 
 ## Backward pass
-Since the loss is a sum of terms each depending only on one Z_{ij}, the calculation of partial derivatives is straightforward. Specifically, we get
+Since the loss is a sum of terms each depending only on one $$Z_{ij}$$, the calculation of partial derivatives is straightforward. Specifically, we get
 
 $$ \frac{\partial E}{\partial Z_{ij}}=-\frac{1}{MN}\frac{\partial}{\partial Z_{ij}}[Y_{ij}log(Z_{ij}) + (1-Y_{ij})log(1-Z_{ij})]$$
 
@@ -40,6 +40,7 @@ $$ \frac{\partial E}{ \partial Z_{ij}}=-\frac{1}{MN}\left(\frac{Y_{ij}}{Z_{ij}} 
 giving the gradient
 
 $$ \nabla_ZE=-\frac{1}{MN}\left(\frac{Y}{Z} - \frac{1-Y}{1-Z}\right)$$
+
 
 
 
