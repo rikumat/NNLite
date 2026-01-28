@@ -3,7 +3,6 @@ epsilon = 1e-12
 
 class BCE:
     def __init__(self):
-        pass
         self.Y=None
         self.Z=None
 
@@ -17,6 +16,7 @@ class BCE:
     def backward(self):
         gradZ = -1/(self.Z.shape[0]*self.Z.shape[1])*(self.Y/self.Z-(1-self.Y)/(1-self.Z))
         return gradZ
+    
 
 
 
