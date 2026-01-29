@@ -4,7 +4,7 @@ Binary cross-entropy (BCE) loss is a loss function used for binary classificatio
 
 $$E=-\frac{1}{M}\sum_{i=1}^M[y_ilog(z_i) + (1-y_i)log(1-z_i)]$$
 
-This can be seen as the negative mean log likelihood of observing y, given parameters $\theta$ and input x.
+This can be seen as the negative mean log likelihood of $\theta$, given y and x.
 
 $$Pr(y_i=1|\theta, x_i) = z_i \quad and \quad Pr(y_i=0|\theta, x_i) = 1-z_i$$ 
 
@@ -42,6 +42,7 @@ $$ \frac{\partial E}{ \partial Z_{ij}}=-\frac{1}{MN}\left(\frac{Y_{ij}}{Z_{ij}} 
 giving the gradient
 
 $$ \nabla_ZE=-\frac{1}{MN}\left(\frac{Y}{Z} - \frac{1-Y}{1-Z}\right)$$
+
 
 
 
