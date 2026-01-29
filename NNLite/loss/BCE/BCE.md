@@ -1,20 +1,22 @@
 # Binary cross-entropy 
 
-Binary cross-entropy (BCE) loss is a loss function used for binary classification problems. It is applicable when the network outputs, for a single input, one or more probabilities representing independent binary labels. More precisely, the output is a vector z, where $z_i = Pr(y_i=1)$, and $y_i$ is the true label for that output. Binary cross-entropy loss is the average negative log-likelihood for all $y_i$. 
+Binary cross-entropy (BCE) loss is a loss function used for binary classification problems. It is applicable when the network outputs, for a single input x, one or more values representing independent probabilities of binary labels. More precisely, the output is a vector z, where $z_i = Pr(y_i=1|\theta, x_i)$, and $y_i$ is the true label for that output. Binary cross-entropy loss is defined by the formula
 
-$$Pr(y_i=1|\theta) = z_i \quad and \quad Pr(y_i=0|\theta) = 1-z_i$$ 
+$$E=-\frac{1}{M}\sum_{i=1}^M[y_ilog(z_i) + (1-y_i)log(1-z_i)]$$
+
+This can be seen as the negative mean log likelihood of observing y, given parameters $\theta$ and input x.
+
+$$Pr(y_i=1|\theta, x_i) = z_i \quad and \quad Pr(y_i=0|\theta, x_i) = 1-z_i$$ 
 
 Which gives the likelihood function 
 
-$$\mathcal{L}(\theta | y_i) = z_i^{y_i}(1-z_i)^{1-y_i}$$
+$$\mathcal{L}(\theta | y, x) = \prod_{i=1}^M z_i^{y_i}(1-z_i)^{1-y_i}$$
 
 and the log likelihood
 
-$$log\mathcal{L}(\theta | y_i) = y_ilog(z_i) + (1-y_i)log(1-z_i)$$
+$$\log\mathcal{L}(\theta | y, x) =\sum_{i=1}^M [y_ilog(z_i) + (1-y_i)log(1-z_i)]$$
 
-This gives the loss
-
-$$ E=-\frac{1}{M}\sum_{i=1}^M[y_ilog(z_i) + (1-y_i)log(1-z_i)]$$
+Which further leads to the loss defined above.
 
 ## Forward pass
 
@@ -40,6 +42,7 @@ $$ \frac{\partial E}{ \partial Z_{ij}}=-\frac{1}{MN}\left(\frac{Y_{ij}}{Z_{ij}} 
 giving the gradient
 
 $$ \nabla_ZE=-\frac{1}{MN}\left(\frac{Y}{Z} - \frac{1-Y}{1-Z}\right)$$
+
 
 
 
