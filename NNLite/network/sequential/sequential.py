@@ -1,6 +1,12 @@
 class Sequential:
     def __init__(self, *functions):
         self.functions = functions
+        self.parameters = []
+        for func in self.functions:
+            if hasattr(func, "W"):
+                self.parameters.append({"param": func.W, "grad": func.gradW})
+            if hasattr(func, "b"):
+                self.parameters.append({"param": func.b, "grad": func.gradB})
 
     def forward(self, X):
         for func in self.functions:
@@ -14,13 +20,7 @@ class Sequential:
             gradE = func.backward(gradE)
 
     def params(self):
-        parameters = []
-        for func in self.functions:
-            if hasattr(func, "W"):
-                parameters.append({"param": func.W, "grad": func.gradW})
-            if hasattr(func, "b"):
-                parameters.append({"param": func.b, "grad": func.gradB})
-        return parameters
+        return self.parameters
 
 
             

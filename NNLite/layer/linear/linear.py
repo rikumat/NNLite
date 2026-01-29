@@ -34,8 +34,8 @@ class Linear:
         and the inputs from the last forward pass. gradX will be used as gradZ by
         the previous function in the sequence.
         """
-        self.gradW=self.X.T @ gradZ
-        self.gradB=np.sum(gradZ, axis=0, keepdims=True)
+        self.gradW[:]=self.X.T @ gradZ
+        self.gradB[:]=np.sum(gradZ, axis=0, keepdims=True)
         gradX=gradZ@self.W.T
         return gradX
 

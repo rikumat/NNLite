@@ -35,10 +35,9 @@ model = Sequential(
     Linear(64, 1),
     Logistic()
 )
+loss = BCE()
 
-old = model.functions[-2].W.copy()
-
-optim = SGD(model, lr=0.0001)
+optim = SGD(model.params(), lr=0.0001)
 NUM_EPOCH=100
 
 for j in range(0, NUM_EPOCH):
@@ -57,8 +56,7 @@ for j in range(0, NUM_EPOCH):
         result = model.forward(x_batch)
         acc += accuracy_score(y_train_binary, (result>0.5).astype(int))
 
-        loss = BCE()
-        l = loss.forward(result, y_train_binary)
+        loss.forward(result, y_train_binary)
         model.backward(loss)
         optim.step()
 

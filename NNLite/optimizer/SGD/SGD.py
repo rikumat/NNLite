@@ -1,10 +1,9 @@
 class SGD:
-    def __init__(self, model, lr=0.01):
-        self.model = model
+    def __init__(self, params, lr=0.01):
+        self.params=params
         self.lr=lr
     
     def step(self):
-        params = self.model.params()
-        for p in params:
+        for p in self.params:
             p["param"]-=self.lr*p["grad"]
     
