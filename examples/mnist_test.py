@@ -7,6 +7,7 @@ from NNLite.activation.logistic.logistic import Logistic
 from NNLite.network.sequential.sequential import Sequential
 from NNLite.layer.linear.linear import Linear
 from NNLite.optimizer.SGD.SGD import SGD
+from NNLite.regularization.L2.L2 import L2
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
@@ -37,7 +38,8 @@ model = Sequential(
 )
 loss = BCE()
 
-optim = SGD(model.params(), lr=0.0001)
+optim = SGD(model.params(),reg=L2(0.1), lr=0.0001)
+
 NUM_EPOCH=100
 
 for j in range(0, NUM_EPOCH):
