@@ -11,10 +11,10 @@ $$({\nabla}_{A}F)_{ij}=\frac{\partial F}{\partial A_{ij}}$$
 
 * $$\theta$$: network parameters
 
-## Update log
-### 29.1.2026 
-- Stable release supporting feedforward networks
+## Implemented features
+- Feedforward network architecture
 - ReLU, Sigmoid activation functions
 - Binary cross entropy loss
 - SGD optimizer
-> New loss functions, optimizers, and regularization will be added soon.
+- L2 regularization
+> New loss functions and optimizers will be added soon.
