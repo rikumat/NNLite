@@ -18,3 +18,4 @@ $$({\nabla}_{A}F)_{ij}=\frac{\partial F}{\partial A_{ij}}$$
 - Binary cross entropy loss
 - SGD optimizer
 - L2 regularization
+> New loss functions and optimizers will be added soon.
