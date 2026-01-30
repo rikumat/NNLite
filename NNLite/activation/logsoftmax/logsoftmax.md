@@ -10,8 +10,10 @@ It computes the natural logarithm of the softmax function, which maps an input v
 The LogSoftMax is calculated separately for each row of the input matrix X.
 
 $$Z_{ij}=LogSoftMax(X_{ij})=log(\frac{e^{X_{ij}}}{\sum_{k=1}^m{e^{X_{ik}}}})$$
-$$log(\frac{e^{X_{ij}}}{\sum_{k=1}^m{e^{X_{ik}}}})=X_{ij} - log(\sum_{k=1}^m(e^{X_{ik}}))$$
+$$Z_{ij}=X_{ij} - log(\sum_{k=1}^m(e^{X_{ik}}))$$
 
 ## Backward pass
 
 $$\frac{\partial E}{\partial X_{ij}} = \frac{\partial E}{\partial Z}\frac{\partial Z}{\partial X_{ij}}$$
+
+$$\frac{\partial E}{\partial X_{ij}} = \sum_{k=1}^m\left(\frac{\partial E}{\partial Z_{ik}}\frac{\partial Z_{ik}}{\partial X_{ij}} \right)$$
