@@ -19,7 +19,4 @@ $$\frac{\partial E}{\partial X_{ij}} = \frac{\partial E}{\partial Z}\frac{\parti
 $$\frac{\partial E}{\partial X_{ij}} = \sum_{k=1}^m\left(\frac{\partial E}{\partial Z_{ik}}\frac{\partial Z_{ik}}{\partial X_{ij}} \right)$$
 
 
-$$\frac{\partial E}{\partial Z_{ik}}\frac{\partial Z_{ik}}{\partial X_{ij}} 
-= \begin{cases}
-{\frac{\partial E}{\partial Z_{ij}}}(1-\frac{1}{X_{ij}}) & \text{if k=j}
-\end{cases}$$
+$$\frac{\partial E}{\partial Z_{ik}}\frac{\partial Z_{ik}}{\partial X_{ij}} = \begin{cases} {\frac{\partial E}{\partial Z_{ij}}}(1-\frac{e^{X_{ij}}}{\sum_{k=1}^m{e^{X_{ik}}}}) & \text{if k=j} \end{cases}$$
