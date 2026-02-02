@@ -4,7 +4,7 @@ Cross entropy loss function is commonly used for categorical classification task
 
 $$E=-\sum_{i=1}^n \sum_{j=1}^m Y_{ij}log\left(Pr(y_{i}=j | x_i))\right)$$
 
-Where Y is the true label matrix, and $Pr(y_{i}=j | x_i)$ is the predicted probability of sample i belonging to class j. As the classes are mutually exclusive, $Y_{i.}$ is a one-hot vector. Consequently, only the terms $log\left(Pr(y_{i}=j | x_i))\right)$ where j corresponds to the true class of sample i contribute to the loss. Let us notate the class probabilities with matrix L: $L_{ij}=log\left(Pr(y_{i}=j | x_i))\right)$.
+Where Y is the true label matrix, and $Pr(y_{i}=j | x_i)$ is the predicted probability of sample i belonging to class j. As the classes are mutually exclusive, $Y_{i.}$ is a one-hot vector. Consequently, only the terms $log\left(Pr(y_{i}=j | x_i))\right)$ where j corresponds to the true class of sample i contribute to the loss. Let us notate the class probabilities with matrix $L_{ij}=log\left(Pr(y_{i}=j | x_i))\right)$.
 Now the loss can be expressed in the form
 
 $$E=-\sum_{i, j}\left(Y \odot L \right)_{ij}$$
@@ -17,11 +17,15 @@ which gives
 
 $$log\left(Pr(y_{i}=j | x_i)\right) = Z_{ij}-log(\sum_{k=1}^N e^{Z_{ik}})$$
 
-For large logits $Z_{ik}$, the exponents can overflow and underflow, resulting in infinities or zeroes. To overcome this, it is common to subtract the maximum $Z_{ik}$ from the exponents in the sum for numerical stability. Let $Z_{max}=max(Z_i.)$
+For large logits $Z_{ik}$, the exponents can overflow and underflow, resulting in infinities or zeroes. To overcome this, it is common to subtract the maximum $Z_{ik}$ from the exponents in the sum for numerical stability.
 
 
-$$log\left(Pr(y_{i}=j | x_i)\right) = Z_{ij}-log(\sum_{k=1}^N e^{Z_{ik}}\frac{e^{Z_{max}}}{e^{Z_{max}}})$$
+$$L_{ij} = Z_{ij}-log(\sum_{k=1}^N e^{Z_{ik}}\frac{e^{max(Z_{i.})}}{e^{max(Z_{i.})}})$$
 
-$$log\left(Pr(y_{i}=j | x_i)\right) = Z_{ij}-log(e^{Z_{max}}\sum_{k=1}^N e^{Z_{ik}-Z_{max}})$$
+$$L_{ij} = Z_{ij}-log(e^{max(Z_{i.})}\sum_{k=1}^N e^{Z_{ik}-max(Z_{i.})})$$
 
-$$log\left(Pr(y_{i}=j | x_i)\right) = Z_{ij}-Z_{max}-log(\sum_{k=1}^N e^{Z_{ik}-Z_{max}})$$
+$$L_{ij} = Z_{ij}-max(Z_{i.})-log(\sum_{k=1}^N e^{Z_{ik}-max(Z_{i.})})$$
+
+## Backward pass
+
+
