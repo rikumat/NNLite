@@ -13,20 +13,14 @@ The input to the loss function is a matrix of logits Z, where $Z_{ij}$ correspon
 
 $$Pr(y_{i}=j | x_i)=\frac{e^{Z_{ij}}}{\sum_{k=1}^M e^{Z_{ik}}}$$
 
-which gives
-
-$$log\left(Pr(y_{i}=j | x_i)\right) = Z_{ij}-log(\sum_{k=1}^M e^{Z_{ik}})$$
-
-For large logits $Z_{ik}$, the exponents can overflow and underflow, resulting in infinities or zeroes. To overcome this, it is common to subtract the maximum $Z_{ik}$ from the exponents in the sum for numerical stability.
+For large logits $Z_{ik}$, the exponents can overflow and underflow, resulting in infinities or zeroes. To overcome this, it is common to subtract the maximum of $Z_{i.}$ from the exponents in the sum for numerical stability.
 
 
-$$L_{ij} = Z_{ij}-log(\sum_{k=1}^M e^{Z_{ik}}\frac{e^{max(Z_{i.})}}{e^{max(Z_{i.})}})$$
-
-$$L_{ij} = Z_{ij}-log(e^{max(Z_{i.})}\sum_{k=1}^M e^{Z_{ik}-max(Z_{i.})})$$
-
-$$L_{ij} = Z_{ij}-max(Z_{i.})-log(\sum_{k=1}^M e^{Z_{ik}-max(Z_{i.})})$$
+$$L_{ij} = log\left(\frac{e^{Z_{ij}-max(Z_{i.})}}{\sum_{k=1}^M e^{Z_{ik}-max(Z_{i.})}}\right)$$
 
 ## Backward pass
+
+$$log\left(Pr(y_{i}=j | x_i)\right) = Z_{ij}-max(Z_{i.})-log(\sum_{k=1}^M e^{Z_{ik}-max(Z_{i.})})$$
 
 let c be the index of the correct class.
 
@@ -46,6 +40,7 @@ $$P_{ij}=\frac{e^{Z_{ij}-max(Z_{i.})}}{\sum_{k=1}^M e^{Z_{ik}-max(Z_{i.})}}$$
 As $Y_{i.}$ is a one-hot vector with the nonzero entry corresponding to the correct class, we can express the gradient in the form
 
 $$\nabla_{Z}E=P-Y$$
+
 
 
 
