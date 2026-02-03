@@ -20,7 +20,7 @@ $$L_{ij} = log\left(\frac{e^{Z_{ij}-max(Z_{i.})}}{\sum_{k=1}^M e^{Z_{ik}-max(Z_{
 
 ## Backward pass
 
-$$log\left(Pr(y_{i}=j | x_i)\right) = Z_{ij}-max(Z_{i.})-log(\sum_{k=1}^M e^{Z_{ik}-max(Z_{i.})})$$
+$$L_{ij} = Z_{ij}-max(Z_{i.})-log(\sum_{k=1}^M e^{Z_{ik}-max(Z_{i.})})$$
 
 let c be the index of the correct class.
 
@@ -40,6 +40,7 @@ $$P_{ij}=\frac{e^{Z_{ij}-max(Z_{i.})}}{\sum_{k=1}^M e^{Z_{ik}-max(Z_{i.})}}$$
 As $Y_{i.}$ is a one-hot vector with the nonzero entry corresponding to the correct class, we can express the gradient in the form
 
 $$\nabla_{Z}E=P-Y$$
+
 
 
 
