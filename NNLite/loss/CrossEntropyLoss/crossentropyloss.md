@@ -45,7 +45,8 @@ $$P_{ij}=\frac{e^{Z_{ij}-max(Z_{i.})}}{\sum_{k=1}^M e^{Z_{ik}-max(Z_{i.})}}$$
 
 As $Y_{i.}$ is a one-hot vector with the nonzero entry corresponding to the correct class, we can express the gradient in the form
 
-$$\nabla_{Z}E=L-Y$$
+$$\nabla_{Z}E=P-Y$$
+
 
 
 
