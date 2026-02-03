@@ -2,6 +2,14 @@
 
 The purpose of this repository is to act as learning material for those interested in the connection between the theory and practical implementation of neural networks.
 
+## Implemented features
+- Feedforward network architecture
+- ReLU, Sigmoid activation functions
+- Cross-entropy, Binary cross-entropy loss
+- SGD optimizer
+- L2 regularization
+> New loss functions and optimizers will be added soon.
+
 ## Terminology
 * ${\nabla}_{A}F$: the gradient of function F with respect to variables A. The shape of the gradient is the shape of A.
 
@@ -11,10 +19,3 @@ $$({\nabla}_{A}F)_{ij}=\frac{\partial F}{\partial A_{ij}}$$
 
 * $$\theta$$: network parameters
 
-## Implemented features
-- Feedforward network architecture
-- ReLU, Sigmoid activation functions
-- Cross-entropy, Binary cross-entropy loss
-- SGD optimizer
-- L2 regularization
-> New loss functions and optimizers will be added soon.
