@@ -14,7 +14,7 @@ $$({\nabla}_{A}F)_{ij}=\frac{\partial F}{\partial A_{ij}}$$
 ## Implemented features
 - Feedforward network architecture
 - ReLU, Sigmoid activation functions
-- Binary cross entropy loss
+- Cross-entropy, Binary cross-entropy loss
 - SGD optimizer
 - L2 regularization
 > New loss functions and optimizers will be added soon.
